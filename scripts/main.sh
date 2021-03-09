@@ -1,5 +1,5 @@
 python main.py \
-    --experiment "unit-conservation" \
+    --experiment "singleshot" \
     --dataset "cifar10" \
     --model "resnet20" \
     --model-class "lottery" \
