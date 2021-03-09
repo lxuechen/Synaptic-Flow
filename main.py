@@ -125,15 +125,18 @@ if __name__ == '__main__':
         result_dir = '{}/{}/{}'.format(args.result_dir, args.experiment, args.expid)
         setattr(args, 'save', True)
         setattr(args, 'result_dir', result_dir)
-        try:
-            os.makedirs(result_dir)
-        except FileExistsError:
-            val = ""
-            while val not in ['yes', 'no']:
-                val = input(
-                    "Experiment '{}' with expid '{}' exists.  Overwrite (yes/no)? ".format(args.experiment, args.expid))
-            if val == 'no':
-                quit()
+        os.makedirs(result_dir, exist_ok=True)
+        # try:
+        #     os.makedirs(result_dir)
+        # except FileExistsError:
+        #     val = ""
+        #     while val not in ['yes', 'no']:
+        #         val = input(
+        #             "Experiment '{}' with expid '{}' exists.  Overwrite (yes/no)? ".format(args.experiment,
+        #             args.expid)
+        #         )
+        #     if val == 'no':
+        #         quit()
 
     ## Save Args ##
     if args.save:
